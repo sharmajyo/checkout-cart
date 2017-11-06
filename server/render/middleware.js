@@ -18,7 +18,13 @@ export default function render(req, res) {
       authenticated,
       isWaiting: false,
       message: '',
-      isLogin: true
+      isLogin: true,
+      cartTotal: 2000,
+      purchasedItems:[
+        {adType: 'classic', discount: 123, price: 345, qty: 5},
+        {adType: 'premium', discount: 0, price: 645, qty: 2},
+        {adType: 'standout', discount: 20, price: 9345, qty: 2},
+      ],
     }
   }, history);
   const routes = createRoutes(store);

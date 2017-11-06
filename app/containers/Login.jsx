@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames/bind';
 import { connect } from 'react-redux';
-import { manualLogin, signUp, toggleLoginMode } from '../actions/users';
+import { manualLogin, signUp, toggleLoginMode } from '../actions/users'
+import classNames from 'classnames/bind';
 import styles from '../css/components/login';
-import hourGlassSvg from '../images/hourglass.svg';
-
 const cx = classNames.bind(styles);
 
-class LoginOrRegister extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
-  handleOnSubmit(event) {
+handleOnSubmit(event) {
     event.preventDefault();
 
     const { manualLogin, signUp, user: { isLogin } } = this.props;
@@ -34,7 +32,7 @@ class LoginOrRegister extends Component {
     if (isLogin) {
       return (
         <div className={cx('header')}>
-          <h1 className={cx('heading')}>Login with Email</h1>
+          <h1 className={cx('heading')}>Login</h1>
           <div className={cx('alternative')}>
             Not what you want?
             <a
@@ -48,7 +46,7 @@ class LoginOrRegister extends Component {
 
     return (
       <div className={cx('header')}>
-        <h1 className={cx('heading')}>Register with Email</h1>
+        <h1 className={cx('heading')}>Register</h1>
         <div className={cx('alternative')}>
           Already have an account?
           <a
@@ -71,7 +69,7 @@ class LoginOrRegister extends Component {
       >
         <div className={cx('container')}>
           { this.renderHeader() }
-          <img className={cx('loading')} alt="loading" src={hourGlassSvg} />
+          <img className={cx('loading')} alt="loading"  />
           <div className={cx('email-container')}>
             <form onSubmit={this.handleOnSubmit}>
               <input
@@ -86,10 +84,7 @@ class LoginOrRegister extends Component {
                ref="password"
                 placeholder="password"
               />
-              <div className={cx('hint')}>
-                <div>Hint</div>
-                <div>email: example@ninja.com password: ninja</div>
-              </div>
+
               <p
                 className={cx('message', {
                 'message-show': message && message.length > 0
@@ -100,19 +95,14 @@ class LoginOrRegister extends Component {
                 value={isLogin ? 'Login' : 'Register'} />
             </form>
           </div>
-          <div className={cx('google-container')}>
-            <h1 className={cx('heading')}>Google Login Demo</h1>
-            <a
-              className={cx('button')}
-              href="/auth/google">Login with Google</a>
-          </div>
+
         </div>
       </div>
     );
   }
 }
 
-LoginOrRegister.propTypes = {
+Login.propTypes = {
   user: PropTypes.object,
   manualLogin: PropTypes.func.isRequired,
   signUp: PropTypes.func.isRequired,
@@ -130,5 +120,4 @@ function mapStateToProps({user}) {
 // Connects React component to the redux store
 // It does not modify the component class passed to it
 // Instead, it returns a new, connected component class, for you to use.
-export default connect(mapStateToProps, { manualLogin, signUp, toggleLoginMode })(LoginOrRegister);
-
+export default connect(mapStateToProps, { manualLogin, signUp, toggleLoginMode })(Login);

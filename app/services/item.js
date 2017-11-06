@@ -6,20 +6,20 @@ export default () => {
   return {
     getTopics: () => client.request({
       method: 'GET',
-      url: '/topic'
+      url: '/item'
     }),
     deleteTopic: ({ id }) => client.request({
       method: 'DELETE',
-      url: `/topic/${id}`
+      url: `/item/${id}`
     }),
     updateTopic: ({ id, data }) => client.request({
       method: 'PUT',
-      url: `/topic/${id}`,
+      url: `/item/${id}`,
       data
     }),
     createTopic: ({ id, data }) => client.request({
       method: 'POST',
-      url: `/topic/${id}`,
+      url: `/item/${id}`,
       data
     })
   };

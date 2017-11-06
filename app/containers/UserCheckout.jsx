@@ -1,6 +1,5 @@
 import React from 'react';
 import Navigation from '../containers/Navigation';
-import Login from '../containers/Login';
 import styles from '../css/main';
 
 /*
@@ -12,13 +11,14 @@ import styles from '../css/main';
  * A better explanation of react-router is available here:
  * https://github.com/rackt/react-router/blob/latest/docs/Introduction.md
  */
-const App = ({ children }) => {
+const UserCheckout = ({ children }) => {
   return (
-    <div className='app'>
-      {children}
+    <div>
+      <Navigation/>
+      { children }
     </div>
   );
 };
 
 
-export default App;
+export default UserCheckout;

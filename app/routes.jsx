@@ -1,7 +1,6 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
-import { fetchVoteData } from './fetch-data';
-import { App, Vote, Dashboard, About, LoginOrRegister } from './pages';
+import { Router, Route, IndexRoute } from 'react-router';
+import { App, UserCheckout, LoginOrRegister, Cart, Marketplace } from './pages';
 
 /*
  * @param {Redux Store}
@@ -20,21 +19,24 @@ export default (store) => {
     callback();
   };
 
-  const redirectAuth = (nextState, replace, callback) => {
-    const { user: { authenticated }} = store.getState();
-    if (authenticated) {
-      replace({
-        pathname: '/'
-      });
-    }
-    callback();
-  };
+  // const redirectAuth = (nextState, replace, callback) => {
+  //   const { user: { authenticated }} = store.getState();
+  //   if (authenticated) {
+  //     replace({
+  //       pathname: '/'
+  //     });
+  //   }
+  //   callback();
+  // };
   return (
-    <Route path="/" component={App}>
-      <IndexRoute component={Vote} fetchData={fetchVoteData} />
-      <Route path="login" component={LoginOrRegister} onEnter={redirectAuth} />
-      <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
-      <Route path="about" component={About} />
-    </Route>
+    <Router>
+      <Route path="/" component={App} >
+        <IndexRoute component={LoginOrRegister} />
+      </Route>
+      <Route path="/user" component={UserCheckout}>
+        <IndexRoute component={Marketplace} />
+        <Route path="cart" component={Cart} />
+      </Route>
+    </Router>
   );
 };

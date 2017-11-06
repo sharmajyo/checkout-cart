@@ -62,7 +62,7 @@ export function manualLogin(data) {
     return authService().login(data)
       .then((response) => {
           dispatch(loginSuccess('You have been successfully logged in'));
-          dispatch(push('/'));
+          dispatch(push('/user'));
       })
       .catch((err) => {
         dispatch(loginError('Oops! Invalid username or password'));
@@ -77,7 +77,7 @@ export function signUp(data) {
     return authService().signUp(data)
       .then((response) => {
           dispatch(signUpSuccess('You have successfully registered an account!'));
-          dispatch(push('/'));
+          dispatch(push('/user'));
       })
       .catch((err) => {
         dispatch(signUpError('Oops! Something went wrong when signing up'));
