@@ -1,0 +1,45 @@
+@import 'common/colors';
+@import 'common/typography';
+
+.app-header {
+  height: 60px;
+  padding: 0 30px;
+  background-color: var(--colorBackgroundDark);
+  border-bottom: 1px solid var(--colorBorder);
+  display: inline-flex;
+  width: 100%;
+}
+
+.app-logo {
+  height: 60px;
+}
+
+.user-details {
+  right: 30px;
+  margin-top: 20px;
+  position: absolute;
+}
+
+.cart {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.navigation {
+    font-size: var(--fontSmall);
+}
+
+.cart-items {
+  position: absolute;
+  right: 50px;
+  top: -10px;
+  background-color: var(--colorDodgerBlue);
+  color: var(--colorWhite);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 12px;
+  padding: 3px;
+}

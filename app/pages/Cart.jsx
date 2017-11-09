@@ -3,7 +3,7 @@ import CartContainer from '../containers/Cart';
 
 class Cart extends Component {
 
-  render() {
+ render() {
     return (
       <CartContainer {...this.props} />
     );

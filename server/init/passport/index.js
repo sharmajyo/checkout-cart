@@ -1,7 +1,6 @@
 /* Initializing passport.js */
 import passport from 'passport';
 import local from './local';
-import google from './google';
 import { passport as dbPassport } from '../../db';
 import unsupportedMessage from '../../db/unsupportedMessage';
 
@@ -16,7 +15,7 @@ export default () => {
 
   if (dbPassport && dbPassport.deserializeUser) {
     passport.serializeUser((user, done) => {
-      done(null, user.id);
+      done(null, user._id);
     });
 
     passport.deserializeUser(dbPassport.deserializeUser);
@@ -26,5 +25,4 @@ export default () => {
 
   // use the following strategies
   local(passport);
-  google(passport);
 };

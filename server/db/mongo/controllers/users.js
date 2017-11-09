@@ -15,7 +15,14 @@ export function login(req, res, next) {
     // logIn()) that can be used to establish a login session
     return req.logIn(user, (loginErr) => {
       if (loginErr) return res.sendStatus(401);
-      return res.sendStatus(200);
+      return res.status(200).send({
+        user: {
+          authenticated: true,
+          id: user.id,
+          isWaiting: false,
+          message: ''
+        }
+      });
     });
   })(req, res, next);
 }
@@ -42,12 +49,19 @@ export function signUp(req, res, next) {
     if (existingUser) {
       return res.sendStatus(409);
     }
-
+    user.id = user.id || Math.ceil(Math.random() * 1000000)
     return user.save((saveErr) => {
       if (saveErr) return next(saveErr);
       return req.logIn(user, (loginErr) => {
         if (loginErr) return res.sendStatus(401);
-        return res.sendStatus(200);
+        return res.status(200).send({
+        user: {
+          authenticated: true,
+          id: user.id,
+          isWaiting: false,
+          message: ''
+        }
+      });
       });
     });
   });

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
+import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { manualLogin, signUp, toggleLoginMode } from '../actions/users'
 import classNames from 'classnames/bind';
@@ -32,13 +33,14 @@ handleOnSubmit(event) {
     if (isLogin) {
       return (
         <div className={cx('header')}>
-          <h1 className={cx('heading')}>Login</h1>
+          <h3>Login</h3>
           <div className={cx('alternative')}>
-            Not what you want?
+            New user?
             <a
+              href=''
               className={cx('alternative-link')}
               onClick={toggleLoginMode}
-            >Register an Account</a>
+            > Register an Account</a>
           </div>
         </div>
       );
@@ -46,30 +48,29 @@ handleOnSubmit(event) {
 
     return (
       <div className={cx('header')}>
-        <h1 className={cx('heading')}>Register</h1>
+        <h3>Register</h3>
         <div className={cx('alternative')}>
           Already have an account?
           <a
+            href=''
             className={cx('alternative-link')}
             onClick={toggleLoginMode}
-          >Login</a>
+          > Login</a>
         </div>
       </div>
     );
   }
 
   render() {
+
     const { isWaiting, message, isLogin } = this.props.user;
 
     return (
       <div
-        className={cx('login', {
-          waiting: isWaiting
-        })}
+        className={cx('login')}
       >
-        <div className={cx('container')}>
+        <div className={cx('login-container')}>
           { this.renderHeader() }
-          <img className={cx('loading')} alt="loading"  />
           <div className={cx('email-container')}>
             <form onSubmit={this.handleOnSubmit}>
               <input
@@ -78,6 +79,7 @@ handleOnSubmit(event) {
                 ref="email"
                placeholder="email"
               />
+              <br/>
               <input
                 className={cx('input')}
                 type="password"
@@ -89,10 +91,13 @@ handleOnSubmit(event) {
                 className={cx('message', {
                 'message-show': message && message.length > 0
               })}>{message}</p>
-              <input
+              <Button
+                type='submit'
+                bsStyle="primary"
                 className={cx('button')}
-                type="submit"
-                value={isLogin ? 'Login' : 'Register'} />
+              >
+                {isLogin ? 'Login' : 'Register'}
+               </Button>
             </form>
           </div>
 
@@ -109,15 +114,10 @@ Login.propTypes = {
   toggleLoginMode: PropTypes.func.isRequired
 };
 
-// Function passed in to `connect` to subscribe to Redux store updates.
-// Any time it updates, mapStateToProps is called.
 function mapStateToProps({user}) {
   return {
     user
   };
 }
 
-// Connects React component to the redux store
-// It does not modify the component class passed to it
-// Instead, it returns a new, connected component class, for you to use.
 export default connect(mapStateToProps, { manualLogin, signUp, toggleLoginMode })(Login);

@@ -4,9 +4,14 @@ import createRestApiClient from '../utils/createRestApiClient';
 export default () => {
   const client = createRestApiClient().withConfig({ baseURL: apiEndpoint });
   return {
-    getAds: () => client.request({
+    getItemsInCart: (userId) => client.request({
       method: 'GET',
-      url: '/item'
+      url: `/cart/${userId}/item`
+    }),
+    addToCart: (id, userId, qty) => client.request({
+      method: 'POST',
+      url: `/cart/item/${id}`,
+      data: {userId, qty, adId: +id}
     })
   };
 };

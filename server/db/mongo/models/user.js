@@ -13,6 +13,7 @@ import mongoose from 'mongoose';
  */
 
 const UserSchema = new mongoose.Schema({
+  id: Number,
   email: { type: String, unique: true, lowercase: true },
   password: String,
   tokens: Array,
@@ -25,7 +26,6 @@ const UserSchema = new mongoose.Schema({
   },
   resetPasswordToken: String,
   resetPasswordExpires: Date,
-  google: {}
 });
 
 function encryptPassword(next) {

@@ -1,31 +1,45 @@
-/*.login {
-  width: 420px;
-  margin: 0 auto;
+@import '../settings';
+@import '../common/form';
+@import '../common/colors';
+
+.login {
+  width: 450px;
+  margin: 60px auto;
   background-color: var(--colorAthensGray);
   border: 2px solid var(--colorMercury);
   border-radius: var(--globalRadius);
 }
 
-.waiting {
-  .loading {
-    display: block;
-  }
+.login-container {
+  padding: 10px 30px;
 }
 
 .alternative {
-  background: var(--colorWhite);
-  padding: 12px 8px;
-  font-size: var(--fontMedium);
-  text-align: center;
+  background: var(--colorLightGray);
+  margin-top: 10px;
+  padding: 12px 0px;
 }
 
 .alternative-link {
-  color: var(--colorDodgerBlue);
   font-weight: bold;
-  cursor: pointer;
 }
 
-.loading {
+.input {
+  @apply --input;
+}
+
+.email-container {
+  padding: 18px 0px;
+}
+
+.message {
+  color: var(--colorCrimson);
+  font-size: var(--fontSmall);
+}
+
+/*.load
+
+ing {
   display: none;
   text-align: center;
   margin: 24px auto;
@@ -36,21 +50,7 @@
   border-bottom: 2px solid var(--colorMercury);
 }
 
-.google-container {
-  padding: 16px 12px;
-}
-
 .header {}
-
-.heading {
-  @apply --subHeading;
-  padding: 16px 12px;
-  text-align: center;
-}
-
-.input {
-  @apply --input;
-}
 
 .message {
   color: var(--colorCrimson);
@@ -64,5 +64,4 @@
 .hint {
   @apply --small;
   color: var(--colorBombay);
-}
-*/
+}*/

@@ -1,0 +1,41 @@
+@import './typography';
+@import './colors';
+@import '../settings';
+
+:root {
+
+  --input {
+    padding: 18px;
+    margin: 8px 0;
+    width: 100%;
+    max-width: 500px;
+    border: none;
+    font-size: var(--fontMedium);
+  }
+
+  --a {
+    color: var(--colorDodgerBlue);
+    cursor: pointer;
+  }
+}
+
+
+button {
+  background-color: var(--colorDodgerBlue);
+  border: none;
+  border-radius: var(--globalRadius);
+  color: var(--colorWhite);
+  font-size: 14px;
+  padding: 8px 10px;
+  min-width: 80px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--colorDodgerBlue);
+  text-decoration: none;
+  font-size: var(--fontMedium);
+}

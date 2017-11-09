@@ -1,9 +1,9 @@
-import topics from './topics';
+import checkout from './checkout';
 import users from './users';
 
-export { topics, users };
+export { checkout, users };
 
 export default {
-  topics,
+  checkout,
   users
 };

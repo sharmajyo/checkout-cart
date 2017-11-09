@@ -1,3 +1,25 @@
+@import 'common/colors';
+@import 'common/typography';
+
 .adCard {
-  border: 1px solid #f0f0f0;
+  border: 2px solid var(--colorMercury);
+  margin: 30px;
+  width: 250px;
+}
+
+.adCard img {
+    width: 100%;
+}
+
+.desc-container {
+  padding: 25px;
+}
+
+.ad-desc {
+  font-size: var(--fontSmall);
+  height: 30px;
+}
+
+.btn-bar .btn-primary{
+  margin-right: 10px;
 }

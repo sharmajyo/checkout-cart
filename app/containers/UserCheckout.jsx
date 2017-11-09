@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '../containers/Navigation';
+
 import styles from '../css/main';
 
 /*
@@ -14,7 +14,6 @@ import styles from '../css/main';
 const UserCheckout = ({ children }) => {
   return (
     <div>
-      <Navigation/>
       { children }
     </div>
   );

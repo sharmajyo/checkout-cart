@@ -1,4 +1,3 @@
-const createStaticAssets = __PRODUCTION__ ? require('./prod') : require('./dev');
+const createAppScript = () => '<script async type="text/javascript" charset="utf-8" src="/assets/app.js"></script>';
 
-export default createStaticAssets;
-
+export default {createAppScript: createAppScript};

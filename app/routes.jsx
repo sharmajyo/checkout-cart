@@ -10,32 +10,25 @@ import { App, UserCheckout, LoginOrRegister, Cart, Marketplace } from './pages';
 export default (store) => {
   const requireAuth = (nextState, replace, callback) => {
     const { user: { authenticated }} = store.getState();
+
     if (!authenticated) {
       replace({
-        pathname: '/login',
+        pathname: '/',
         state: { nextPathname: nextState.location.pathname }
       });
     }
     callback();
   };
 
-  // const redirectAuth = (nextState, replace, callback) => {
-  //   const { user: { authenticated }} = store.getState();
-  //   if (authenticated) {
-  //     replace({
-  //       pathname: '/'
-  //     });
-  //   }
-  //   callback();
-  // };
   return (
     <Router>
       <Route path="/" component={App} >
         <IndexRoute component={LoginOrRegister} />
-      </Route>
-      <Route path="/user" component={UserCheckout}>
-        <IndexRoute component={Marketplace} />
-        <Route path="cart" component={Cart} />
+
+        <Route path="user" component={UserCheckout} onEnter={requireAuth}>
+          <IndexRoute component={Marketplace} onEnter={requireAuth}/>
+          <Route path="cart" component={Cart} onEnter={requireAuth}/>
+        </Route>
       </Route>
     </Router>
   );

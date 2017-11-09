@@ -1,0 +1,23 @@
+:root {
+
+  --colorBlack:               #000;
+  --colorWhite:               #fff;
+  --colorLightGray:           #fafafa;
+  --colorDodgerBlue:          #2196F3;
+  --colorSalem:               #0F9D58;
+  --colorDarkerSalem:         #0b6e3e;
+  --colorPunch:               #db4437;
+  --colorLoblolly:            #c3c8ce;
+  --colorLimedSpruce:         #333f48;
+  --colorAthensGray:          #f5f5f6;
+  --colorMercury:             #e3e3e3;
+  --colorBombay:              #b4bac1;
+  --colorCrimson:             #ed193a;
+  --colorDarkerCrimson:       color(var(--colorCrimson) blackness(+20%));
+
+  --colorBackground:          #f0f0f0;
+  --colorBackgroundDark:      #e4e2e2;
+  --colorTextDark:            #928f8f;
+  --colorBorder:              #d0b9b9;
+  --colorBorderDark:              #c0bebe;
+}
